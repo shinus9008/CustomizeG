@@ -135,6 +135,57 @@
 
             </Grid>            
         </TabItem>
+        <TabItem Header="Extensions Menu">
+            <Grid Margin="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition />
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                
+                <TextBlock Grid.Row="0" TextWrapping="WrapWithOverflow" >
+                    Many many text 
+                    ddddddddddddddddddddddddddddddddd 
+                    ddddddddddddddddddddddddddddddddd 
+                    ddddddddddddddddddddddddddddddddd 
+                    ddddddddddddddddddddddddddddddddd 
+                    ddddddddddddddddddddddddddddddddd
+                </TextBlock>
+
+                <TextBlock Style="{DynamicResource ResourceKey=gLabel}"
+                           Grid.Row="1" Text="Menu items int the Extentions menu:" />
+
+                <ListBox Grid.Row="2">
+                    <CheckBox Content="1"/>
+                    <CheckBox Content="1"/>
+                    <CheckBox Content="1"/>
+                    <CheckBox Content="1"/>
+                </ListBox>
+
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" TextWrapping="WrapWithOverflow" >
+                    Many many text 
+                    ddddddddddddddddddddddddddddddddd 
+                    ddddddddddddddddddddddddddddddddd 
+                    ddddddddddddddddddddddddddddddddd 
+                    ddddddddddddddddddddddddddddddddd 
+                    ddddddddddddddddddddddddddddddddd
+                    </TextBlock>
+
+                    <StackPanel Grid.Column="1" Orientation="Vertical">
+                        <Button Style="{DynamicResource ResourceKey=gButton}" Content="Save and Restart"/>                        
+                    </StackPanel>
+
+                </Grid>
+
+            </Grid>
+        </TabItem>
     </TabControl>
     
 </Window>
