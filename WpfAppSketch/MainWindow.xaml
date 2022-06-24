@@ -5,8 +5,96 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppSketch"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="450" Width="450">
 
-    </Grid>
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style x:Key="gButton" TargetType="Button">
+                <Setter Property="Margin" Value="5,0,5,5"/>
+            </Style>
+            <Style x:Key="gLabel" TargetType="TextBlock">
+                <Setter Property="Margin" Value="0,5,0,5"/>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    <TabControl Margin="10">
+        <TabItem Header="Commands">
+            <Grid Margin="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Style="{DynamicResource ResourceKey=gLabel}"
+                           Grid.Row="0" Text="Choose a menu or toolbar to rearrange:" />
+
+                <StackPanel Grid.Row="1" Orientation="Vertical" Grid.IsSharedSizeScope="True">                    
+                    <RadioButton HorizontalContentAlignment="Stretch">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition SharedSizeGroup="_NAME"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>                            
+                            <TextBlock Grid.Column="0" Text="Menu bar:"/>
+                            <ComboBox  Grid.Column="1" />
+                        </Grid>
+                    </RadioButton>
+                    <RadioButton HorizontalContentAlignment="Stretch">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition SharedSizeGroup="_NAME"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Tool bar:"/>
+                            <ComboBox  Grid.Column="1" />
+                        </Grid>
+                    </RadioButton>
+                    <RadioButton HorizontalContentAlignment="Stretch">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition SharedSizeGroup="_NAME"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Context menu:"/>
+                            <ComboBox  Grid.Column="1" />
+                        </Grid>
+                    </RadioButton>
+                </StackPanel>
+
+                <TextBlock Style="{DynamicResource ResourceKey=gLabel}"
+                           Grid.Row="2" Text="Preview:" />
+
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ListBox Grid.Column="0">
+                        <MenuItem Header="1">
+                            <MenuItem/>
+                        </MenuItem>
+                        <MenuItem Header="1"/>
+                        <MenuItem Header="1"/>
+                        <MenuItem Header="1"/>
+                    </ListBox>
+
+                    <StackPanel Grid.Column="1" Orientation="Vertical">
+                        <Button Style="{DynamicResource ResourceKey=gButton}" Content="Add Command..."/>
+                        <Button Style="{DynamicResource ResourceKey=gButton}" Content="Add New Menu"/>
+                        <Button Style="{DynamicResource ResourceKey=gButton}" Content="Delete"/>
+                        <Button Style="{DynamicResource ResourceKey=gButton}" Content="Move Up"/>
+                        <Button Style="{DynamicResource ResourceKey=gButton}" Content="Move Down"/>
+                        <Button Style="{DynamicResource ResourceKey=gButton}" Content="Modify Selection"/>
+                        <Button Style="{DynamicResource ResourceKey=gButton}" Content="Reset All"/>
+                    </StackPanel>
+                    
+                </Grid>             
+
+            </Grid>            
+        </TabItem>
+    </TabControl>
 </Window>
