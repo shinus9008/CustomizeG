@@ -21,155 +21,144 @@
             </Style>
         </ResourceDictionary>
     </Window.Resources>
-    
-    <TabControl Margin="10">
-        <TabItem Header="Toolbars" IsSelected="True">
-            <Grid Margin="3">
-                <Grid.RowDefinitions>                    
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                
-                <TextBlock Style="{DynamicResource ResourceKey=gLabel}"
+
+    <DockPanel>
+        <ToolBarTray DockPanel.Dock="Top" Background="Orange" >
+            <ToolBar/>
+        </ToolBarTray>
+        <ToolBarTray DockPanel.Dock="Bottom" Background="Orange">
+            <ToolBar/>
+        </ToolBarTray>        
+        <ToolBarTray DockPanel.Dock="Left" Orientation="Vertical" Background="Green">
+            <ToolBar/>
+            <ToolBar/>
+        </ToolBarTray>
+        <ToolBarTray DockPanel.Dock="Right" Orientation="Vertical" Background="Green">
+            <ToolBar/>
+        </ToolBarTray>       
+        <TabControl Margin="10">
+            <TabItem Header="Toolbars" IsSelected="True">
+                <Grid Margin="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Style="{DynamicResource ResourceKey=gLabel}"
                            Grid.Row="0" Text="Toolbars:" />
 
-                <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="3*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-                    <ListBox Grid.Column="0">
-                        <CheckBox Content="1"/>
-                        <CheckBox Content="1"/>
-                        <CheckBox Content="1"/>
-                        <CheckBox Content="1"/>
-                    </ListBox>
+                        <ListBox Grid.Column="0">
+                            <CheckBox Content="1"/>
+                            <CheckBox Content="1"/>
+                            <CheckBox Content="1"/>
+                            <CheckBox Content="1"/>
+                        </ListBox>
 
-                    <StackPanel Grid.Column="1" Orientation="Vertical">
-                        <Button Style="{DynamicResource ResourceKey=gButton}" Content="New"/>
-                        <Button Style="{DynamicResource ResourceKey=gButton}" Content="Delete"/>
+                        <StackPanel Grid.Column="1" Orientation="Vertical">
+                            <Button Style="{DynamicResource ResourceKey=gButton}" Content="New"/>
+                            <Button Style="{DynamicResource ResourceKey=gButton}" Content="Delete"/>
 
-                        <TextBlock Text="Location:"  Margin="5,20,5,5"/>
-                        <ComboBox Style="{DynamicResource ResourceKey=gComboBox}"/>
-                    </StackPanel>
+                            <TextBlock Text="Location:"  Margin="5,20,5,5"/>
+                            <ComboBox Style="{DynamicResource ResourceKey=gComboBox}"/>
+                        </StackPanel>
+
+                    </Grid>
 
                 </Grid>
+            </TabItem>
+            <TabItem Header="Commands">
+                <Grid Margin="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
 
-            </Grid>
-        </TabItem>      
-        <TabItem Header="Commands">
-            <Grid Margin="3">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-
-                <TextBlock Style="{DynamicResource ResourceKey=gLabel}"
+                    <TextBlock Style="{DynamicResource ResourceKey=gLabel}"
                            Grid.Row="0" Text="Choose a menu or toolbar to rearrange:" />
 
-                <StackPanel Grid.Row="1" Orientation="Vertical" Grid.IsSharedSizeScope="True">                    
-                    <RadioButton HorizontalContentAlignment="Stretch">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition SharedSizeGroup="_NAME"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>                            
-                            <TextBlock Grid.Column="0" Text="Menu bar:"/>
-                            <ComboBox  Grid.Column="1" />
-                        </Grid>
-                    </RadioButton>
-                    <RadioButton HorizontalContentAlignment="Stretch">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition SharedSizeGroup="_NAME"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Text="Tool bar:"/>
-                            <ComboBox  Grid.Column="1" />
-                        </Grid>
-                    </RadioButton>
-                    <RadioButton HorizontalContentAlignment="Stretch">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition SharedSizeGroup="_NAME"/>
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Text="Context menu:"/>
-                            <ComboBox  Grid.Column="1" />
-                        </Grid>
-                    </RadioButton>
-                </StackPanel>
+                    <StackPanel Grid.Row="1" Orientation="Vertical" Grid.IsSharedSizeScope="True">
+                        <RadioButton HorizontalContentAlignment="Stretch">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition SharedSizeGroup="_NAME"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="Menu bar:"/>
+                                <ComboBox  Grid.Column="1" />
+                            </Grid>
+                        </RadioButton>
+                        <RadioButton HorizontalContentAlignment="Stretch">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition SharedSizeGroup="_NAME"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="Tool bar:"/>
+                                <ComboBox  Grid.Column="1" />
+                            </Grid>
+                        </RadioButton>
+                        <RadioButton HorizontalContentAlignment="Stretch">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition SharedSizeGroup="_NAME"/>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="Context menu:"/>
+                                <ComboBox  Grid.Column="1" />
+                            </Grid>
+                        </RadioButton>
+                    </StackPanel>
 
-                <TextBlock Style="{DynamicResource ResourceKey=gLabel}"
+                    <TextBlock Style="{DynamicResource ResourceKey=gLabel}"
                            Grid.Row="2" Text="Preview:" />
 
-                <Grid Grid.Row="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="3*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-                    <ListBox Grid.Column="0">
-                        <MenuItem Header="1">
-                            <MenuItem/>
-                        </MenuItem>
-                        <MenuItem Header="1"/>
-                        <MenuItem Header="1"/>
-                        <MenuItem Header="1"/>
-                    </ListBox>
+                        <ListBox Grid.Column="0">
+                            <MenuItem Header="1">
+                                <MenuItem/>
+                            </MenuItem>
+                            <MenuItem Header="1"/>
+                            <MenuItem Header="1"/>
+                            <MenuItem Header="1"/>
+                        </ListBox>
 
-                    <StackPanel Grid.Column="1" Orientation="Vertical">
-                        <Button Style="{DynamicResource ResourceKey=gButton}" Content="Add Command..."/>
-                        <Button Style="{DynamicResource ResourceKey=gButton}" Content="Add New Menu"/>
-                        <Button Style="{DynamicResource ResourceKey=gButton}" Content="Delete"/>
-                        <Button Style="{DynamicResource ResourceKey=gButton}" Content="Move Up"/>
-                        <Button Style="{DynamicResource ResourceKey=gButton}" Content="Move Down"/>
-                        <Button Style="{DynamicResource ResourceKey=gButton}" Content="Modify Selection"/>
-                        <Button Style="{DynamicResource ResourceKey=gButton}" Content="Reset All"/>
-                    </StackPanel>
-                    
-                </Grid>             
+                        <StackPanel Grid.Column="1" Orientation="Vertical">
+                            <Button Style="{DynamicResource ResourceKey=gButton}" Content="Add Command..."/>
+                            <Button Style="{DynamicResource ResourceKey=gButton}" Content="Add New Menu"/>
+                            <Button Style="{DynamicResource ResourceKey=gButton}" Content="Delete"/>
+                            <Button Style="{DynamicResource ResourceKey=gButton}" Content="Move Up"/>
+                            <Button Style="{DynamicResource ResourceKey=gButton}" Content="Move Down"/>
+                            <Button Style="{DynamicResource ResourceKey=gButton}" Content="Modify Selection"/>
+                            <Button Style="{DynamicResource ResourceKey=gButton}" Content="Reset All"/>
+                        </StackPanel>
 
-            </Grid>            
-        </TabItem>
-        <TabItem Header="Extensions Menu">
-            <Grid Margin="3">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition />
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                
-                <TextBlock Grid.Row="0" TextWrapping="WrapWithOverflow" >
-                    Many many text 
-                    ddddddddddddddddddddddddddddddddd 
-                    ddddddddddddddddddddddddddddddddd 
-                    ddddddddddddddddddddddddddddddddd 
-                    ddddddddddddddddddddddddddddddddd 
-                    ddddddddddddddddddddddddddddddddd
-                </TextBlock>
+                    </Grid>
 
-                <TextBlock Style="{DynamicResource ResourceKey=gLabel}"
-                           Grid.Row="1" Text="Menu items int the Extentions menu:" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Extensions Menu">
+                <Grid Margin="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition />
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
 
-                <ListBox Grid.Row="2">
-                    <CheckBox Content="1"/>
-                    <CheckBox Content="1"/>
-                    <CheckBox Content="1"/>
-                    <CheckBox Content="1"/>
-                </ListBox>
-
-                <Grid Grid.Row="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="3*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock Grid.Column="0" TextWrapping="WrapWithOverflow" >
+                    <TextBlock Grid.Row="0" TextWrapping="WrapWithOverflow" >
                     Many many text 
                     ddddddddddddddddddddddddddddddddd 
                     ddddddddddddddddddddddddddddddddd 
@@ -178,14 +167,42 @@
                     ddddddddddddddddddddddddddddddddd
                     </TextBlock>
 
-                    <StackPanel Grid.Column="1" Orientation="Vertical">
-                        <Button Style="{DynamicResource ResourceKey=gButton}" Content="Save and Restart"/>                        
-                    </StackPanel>
+                    <TextBlock Style="{DynamicResource ResourceKey=gLabel}"
+                           Grid.Row="1" Text="Menu items int the Extentions menu:" />
+
+                    <ListBox Grid.Row="2">
+                        <CheckBox Content="1"/>
+                        <CheckBox Content="1"/>
+                        <CheckBox Content="1"/>
+                        <CheckBox Content="1"/>
+                    </ListBox>
+
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" TextWrapping="WrapWithOverflow" >
+                    Many many text 
+                    ddddddddddddddddddddddddddddddddd 
+                    ddddddddddddddddddddddddddddddddd 
+                    ddddddddddddddddddddddddddddddddd 
+                    ddddddddddddddddddddddddddddddddd 
+                    ddddddddddddddddddddddddddddddddd
+                        </TextBlock>
+
+                        <StackPanel Grid.Column="1" Orientation="Vertical">
+                            <Button Style="{DynamicResource ResourceKey=gButton}" Content="Save and Restart"/>
+                        </StackPanel>
+
+                    </Grid>
 
                 </Grid>
-
-            </Grid>
-        </TabItem>
-    </TabControl>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+    
+    
     
 </Window>
