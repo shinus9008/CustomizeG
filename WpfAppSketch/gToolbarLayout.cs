@@ -39,8 +39,22 @@ namespace WpfAppSketch
         public ReadOnlyObservableCollection<gToolbarLayoutItem> Toolbars => _bindingCollection;
     }
 
-    public class gToolbarLayoutItem
+    public class gToolbarLayoutItem : ReactiveObject
     {
-        public string Text { get; internal set; }
+        [Reactive]
+        public string Text { get; set; }
+
+        public gToolbarLayoutItem()
+        {
+            this.WhenAnyValue(x => x.Band, x => x.BandIndex, (b1, b2) =>
+            $"Band: {b1}; BandIndex: {b2}")
+                .Subscribe(x => Text = x);
+        }
+
+        [Reactive]
+        public int Band { get; set; }
+
+        [Reactive]
+        public int BandIndex { get; set; }
     }
 }

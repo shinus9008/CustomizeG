@@ -20,9 +20,18 @@
                 <Setter Property="Margin" Value="5,0,5,5"/>
             </Style>
 
+            <Style TargetType="ToolBar">
+                <Setter Property="Background" Value="Red" />
+               
+            </Style>
 
             <DataTemplate DataType="{x:Type local:gToolbarLayoutItem}">
-                <TextBlock Text="{Binding Path=Text}" />
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="{Binding Path=Text}" />
+                    <TextBlock Text="{Binding Path=Band}" />
+                    <TextBlock Text="{Binding Path=BandIndex}" />
+                </StackPanel>
+                
             </DataTemplate>
             
         </ResourceDictionary>
@@ -32,7 +41,7 @@
         <ToolBarTray DockPanel.Dock="Top" Background="Orange" x:Name="__ToolbarLayout_Top" />
 
 
-        <ToolBarTray DockPanel.Dock="Bottom" Background="Orange">
+        <ToolBarTray DockPanel.Dock="Bottom" Background="Orange" >
             <ToolBar/>
         </ToolBarTray>        
         <ToolBarTray DockPanel.Dock="Left" Orientation="Vertical" Background="Green">

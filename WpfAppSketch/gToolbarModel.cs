@@ -8,7 +8,12 @@ namespace WpfAppSketch
 {
     public class gToolbarModel
     {
-        public string Key { get; set; }
-        public bool Visibility { get; internal set; }
+        public string Key       { get; set; }
+
+        public int Band         { get; set; }
+        public int BandIndex    { get; set; }
+
+
+        public bool Visibility  { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using DynamicData.Binding;
 using System;
 using System.Reactive;
+using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -17,6 +18,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
+using ReactiveUI;
 
 namespace WpfAppSketch
 {
@@ -109,14 +111,38 @@ namespace WpfAppSketch
 
         private ToolBar ToolBarFactory(gToolbarLayoutItem layoutItem)
         {
-            var ToolBar = new ToolBar()
+            var ToolBar = new ToolBarReactive()
             {
-                DataContext = layoutItem,
+                DataContext = layoutItem,                
             };
 
             ToolBar.Items.Add(layoutItem);
             return ToolBar;
 
+        }
+
+
+        private class ToolBarReactive : ToolBar, IViewFor<gToolbarLayoutItem>
+        {
+            public ToolBarReactive()
+            {
+                this.WhenActivated(disposeble =>
+                {
+                    this.Bind(ViewModel, vm => vm.Band,      v => v.Band)     .DisposeWith(disposeble);
+                    this.Bind(ViewModel, vm => vm.BandIndex, v => v.BandIndex).DisposeWith(disposeble);
+                });
+            }
+
+            public gToolbarLayoutItem? ViewModel 
+            {
+                get => DataContext as gToolbarLayoutItem;
+                set => DataContext = value;
+            }
+            object? IViewFor.ViewModel 
+            { 
+                get => DataContext as gToolbarLayoutItem;
+                set => DataContext = value;
+            }
         }
 
     }
