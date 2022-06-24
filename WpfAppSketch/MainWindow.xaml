@@ -19,13 +19,19 @@
             <Style x:Key="gComboBox" TargetType="ComboBox">
                 <Setter Property="Margin" Value="5,0,5,5"/>
             </Style>
+
+
+            <DataTemplate DataType="{x:Type local:gToolbarLayoutItem}">
+                <TextBlock Text="{Binding Path=Text}" />
+            </DataTemplate>
+            
         </ResourceDictionary>
     </Window.Resources>
 
-    <DockPanel>
-        <ToolBarTray DockPanel.Dock="Top" Background="Orange" >
-            <ToolBar/>
-        </ToolBarTray>
+    <DockPanel >
+        <ToolBarTray DockPanel.Dock="Top" Background="Orange" x:Name="__ToolbarLayout_Top" />
+
+
         <ToolBarTray DockPanel.Dock="Bottom" Background="Orange">
             <ToolBar/>
         </ToolBarTray>        
@@ -36,8 +42,16 @@
         <ToolBarTray DockPanel.Dock="Right" Orientation="Vertical" Background="Green">
             <ToolBar/>
         </ToolBarTray>       
+        
+        
+        
+        
+        
+        
         <TabControl Margin="10">
-            <TabItem Header="Toolbars" IsSelected="True">
+            
+            
+            <TabItem Header="Toolbars" IsSelected="True" x:Name="__Toolbars">
                 <Grid Margin="3">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -53,12 +67,24 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <ListBox Grid.Column="0">
-                            <CheckBox Content="1"/>
-                            <CheckBox Content="1"/>
-                            <CheckBox Content="1"/>
-                            <CheckBox Content="1"/>
+                        <ListBox Grid.Column="0" ItemsSource="{Binding Path=Toolbars}" SelectedItem="{Binding Path=Toolbar}" SelectionMode="Single">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate DataType="{x:Type local:gToolbarViewModel}">
+                                    <Border>
+                                        <StackPanel >
+                                            <CheckBox IsChecked ="{Binding Path=Visibility, Mode=OneWay}" 
+                                                  Command   ="{Binding Path=VisibilitySwitch}" 
+                                                  Content   ="{Binding Path=Name}"/>
+
+                                        </StackPanel>
+                                    </Border>
+                                    
+                                    
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
                         </ListBox>
+
+
 
                         <StackPanel Grid.Column="1" Orientation="Vertical">
                             <Button Style="{DynamicResource ResourceKey=gButton}" Content="New"/>
@@ -201,6 +227,8 @@
                 </Grid>
             </TabItem>
         </TabControl>
+        
+        
     </DockPanel>
     
     
